@@ -11,7 +11,8 @@ import SwiftUI
 struct Millionaire_SwiftUIApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            //AnswerGridView()
+            MainMenuView()
         }
     }
 }

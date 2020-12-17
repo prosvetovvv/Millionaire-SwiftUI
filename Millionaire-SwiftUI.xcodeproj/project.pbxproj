@@ -8,18 +8,36 @@
 
 /* Begin PBXBuildFile section */
 		E126862525835C2F009CF851 /* Millionaire_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E126862425835C2F009CF851 /* Millionaire_SwiftUIApp.swift */; };
-		E126862725835C2F009CF851 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E126862625835C2F009CF851 /* ContentView.swift */; };
+		E126862725835C2F009CF851 /* AnswerGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E126862625835C2F009CF851 /* AnswerGridView.swift */; };
 		E126862925835C33009CF851 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E126862825835C33009CF851 /* Assets.xcassets */; };
 		E126862C25835C33009CF851 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E126862B25835C33009CF851 /* Preview Assets.xcassets */; };
+		E12686372583633A009CF851 /* AnswerTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12686362583633A009CF851 /* AnswerTitle.swift */; };
+		E18FDC71258393C90060F20F /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18FDC70258393C90060F20F /* Question.swift */; };
+		E18FDC7425839A290060F20F /* AnswerGridViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18FDC7325839A290060F20F /* AnswerGridViewModel.swift */; };
+		E18FDC83258889A10060F20F /* MainMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18FDC82258889A10060F20F /* MainMenuView.swift */; };
+		E18FDC8825889A940060F20F /* XDismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18FDC8725889A930060F20F /* XDismissButton.swift */; };
+		E18FDC8C2588A2D40060F20F /* SettingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18FDC8B2588A2D40060F20F /* SettingButton.swift */; };
+		E18FDC8F2588AA4F0060F20F /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18FDC8E2588AA4F0060F20F /* SettingsView.swift */; };
+		E18FDC932588D7770060F20F /* MainMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18FDC922588D7770060F20F /* MainMenuViewModel.swift */; };
+		E18FDC9B258A2E460060F20F /* StartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18FDC9A258A2E460060F20F /* StartButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		E126862125835C2F009CF851 /* Millionaire-SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Millionaire-SwiftUI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E126862425835C2F009CF851 /* Millionaire_SwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Millionaire_SwiftUIApp.swift; sourceTree = "<group>"; };
-		E126862625835C2F009CF851 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		E126862625835C2F009CF851 /* AnswerGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerGridView.swift; sourceTree = "<group>"; };
 		E126862825835C33009CF851 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E126862B25835C33009CF851 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E126862D25835C33009CF851 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E12686362583633A009CF851 /* AnswerTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerTitle.swift; sourceTree = "<group>"; };
+		E18FDC70258393C90060F20F /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		E18FDC7325839A290060F20F /* AnswerGridViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerGridViewModel.swift; sourceTree = "<group>"; };
+		E18FDC82258889A10060F20F /* MainMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuView.swift; sourceTree = "<group>"; };
+		E18FDC8725889A930060F20F /* XDismissButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XDismissButton.swift; sourceTree = "<group>"; };
+		E18FDC8B2588A2D40060F20F /* SettingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingButton.swift; sourceTree = "<group>"; };
+		E18FDC8E2588AA4F0060F20F /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		E18FDC922588D7770060F20F /* MainMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewModel.swift; sourceTree = "<group>"; };
+		E18FDC9A258A2E460060F20F /* StartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,9 +70,11 @@
 		E126862325835C2F009CF851 /* Millionaire-SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
-				E126862425835C2F009CF851 /* Millionaire_SwiftUIApp.swift */,
-				E126862625835C2F009CF851 /* ContentView.swift */,
-				E126862825835C33009CF851 /* Assets.xcassets */,
+				E18FDC7D258888FB0060F20F /* Model+Data */,
+				E18FDC8625889A5F0060F20F /* Settings */,
+				E18FDC81258889700060F20F /* Main Menu */,
+				E18FDC7B2588889A0060F20F /* Game */,
+				E18FDC7E258889410060F20F /* Support */,
 				E126862D25835C33009CF851 /* Info.plist */,
 				E126862A25835C33009CF851 /* Preview Content */,
 			);
@@ -67,6 +87,53 @@
 				E126862B25835C33009CF851 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		E18FDC7B2588889A0060F20F /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				E18FDC7325839A290060F20F /* AnswerGridViewModel.swift */,
+				E126862625835C2F009CF851 /* AnswerGridView.swift */,
+				E12686362583633A009CF851 /* AnswerTitle.swift */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
+		E18FDC7D258888FB0060F20F /* Model+Data */ = {
+			isa = PBXGroup;
+			children = (
+				E18FDC70258393C90060F20F /* Question.swift */,
+			);
+			path = "Model+Data";
+			sourceTree = "<group>";
+		};
+		E18FDC7E258889410060F20F /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				E126862425835C2F009CF851 /* Millionaire_SwiftUIApp.swift */,
+				E126862825835C33009CF851 /* Assets.xcassets */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		E18FDC81258889700060F20F /* Main Menu */ = {
+			isa = PBXGroup;
+			children = (
+				E18FDC922588D7770060F20F /* MainMenuViewModel.swift */,
+				E18FDC82258889A10060F20F /* MainMenuView.swift */,
+				E18FDC9A258A2E460060F20F /* StartButton.swift */,
+				E18FDC8B2588A2D40060F20F /* SettingButton.swift */,
+			);
+			path = "Main Menu";
+			sourceTree = "<group>";
+		};
+		E18FDC8625889A5F0060F20F /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				E18FDC8E2588AA4F0060F20F /* SettingsView.swift */,
+				E18FDC8725889A930060F20F /* XDismissButton.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,8 +205,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E126862725835C2F009CF851 /* ContentView.swift in Sources */,
+				E18FDC7425839A290060F20F /* AnswerGridViewModel.swift in Sources */,
+				E18FDC83258889A10060F20F /* MainMenuView.swift in Sources */,
+				E18FDC8C2588A2D40060F20F /* SettingButton.swift in Sources */,
+				E18FDC9B258A2E460060F20F /* StartButton.swift in Sources */,
+				E18FDC71258393C90060F20F /* Question.swift in Sources */,
+				E18FDC8F2588AA4F0060F20F /* SettingsView.swift in Sources */,
+				E126862725835C2F009CF851 /* AnswerGridView.swift in Sources */,
 				E126862525835C2F009CF851 /* Millionaire_SwiftUIApp.swift in Sources */,
+				E18FDC932588D7770060F20F /* MainMenuViewModel.swift in Sources */,
+				E12686372583633A009CF851 /* AnswerTitle.swift in Sources */,
+				E18FDC8825889A940060F20F /* XDismissButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
