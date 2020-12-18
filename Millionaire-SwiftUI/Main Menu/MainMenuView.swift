@@ -17,25 +17,17 @@ struct MainMenuView: View {
                 ResultsButton(sheet: $viewModel.activeSheet)
                 SettingButton(sheet: $viewModel.activeSheet)
             }
-            
             Spacer()
-            
             StartButton(sheet: $viewModel.activeSheet)
-            
             Spacer()
-            
         }
         
         .sheet(item: $viewModel.activeSheet) { item in
-            
             switch item {
-            
             case .settings:
                 SettingsView()
-                
             case .start:
                 AnswerGridView()
-                
             case .results:
                 ResultsView()
             }

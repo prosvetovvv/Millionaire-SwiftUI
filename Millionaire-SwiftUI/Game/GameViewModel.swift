@@ -14,27 +14,34 @@ enum GameSheets: Identifiable {
     case victory, loss
 }
 
-final class AnswerGridViewModel: ObservableObject {
+final class GameViewModel: ObservableObject {
         
     @Published var currentAnswer: Question
     @Published var activeSheet: GameSheets?
     
-    var questions = QuestionsData.questions
-    var currentNumberAnswer = 0
+    private let resultsCaretaker = ResultsCaretaker()
+    private let resultsViewModel = ResultsViewModel()
+    
     let columns: [GridItem] = [GridItem(.flexible())]
-        
+    
+    var questions = QuestionsData.questions
+    var score = 0
+    
     init() {
         currentAnswer = questions.first!
     }
     
     func check(_ answer: Answer) {
-        //currentNumberAnswer += 1
         questions.removeFirst()
         if answer.isRight, !questions.isEmpty {
+            score += 1
             currentAnswer = questions.first!
         } else if answer.isRight, questions.isEmpty {
+            score += 1
+            resultsViewModel.results.append(Result(date: Date(), score: score))
             activeSheet = .victory
         } else {
+            resultsViewModel.results.append(Result(date: Date(), score: score))
             activeSheet = .loss
         }
     }

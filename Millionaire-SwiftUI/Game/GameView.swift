@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AnswerGridView: View {
     
-    @ObservedObject var viewModel = AnswerGridViewModel()
+    @ObservedObject var viewModel = GameViewModel()
     
     var body: some View {
         ZStack {
