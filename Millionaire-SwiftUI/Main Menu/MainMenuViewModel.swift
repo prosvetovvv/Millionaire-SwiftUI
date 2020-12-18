@@ -7,14 +7,15 @@
 
 import SwiftUI
 
-enum Sheets: Identifiable {
+enum MenuSheets: Identifiable {
     var id: Int {
         hashValue
     }
-    case start, settings
+    case start, settings, results
 }
 
 final class MainMenuViewModel: ObservableObject {
         
-    @Published var activeSheet: Sheets? = nil
+    @Published var activeSheet: MenuSheets?
+    @Published var results: [Result]?
 }

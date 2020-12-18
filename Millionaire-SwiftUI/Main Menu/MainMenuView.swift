@@ -13,14 +13,17 @@ struct MainMenuView: View {
     
     var body: some View {
         VStack {
-            SettingButton(sheet: $viewModel.activeSheet)
+            HStack {
+                ResultsButton(sheet: $viewModel.activeSheet)
+                SettingButton(sheet: $viewModel.activeSheet)
+            }
             
             Spacer()
             
             StartButton(sheet: $viewModel.activeSheet)
-                
+            
             Spacer()
-
+            
         }
         
         .sheet(item: $viewModel.activeSheet) { item in
@@ -32,6 +35,9 @@ struct MainMenuView: View {
                 
             case .start:
                 AnswerGridView()
+                
+            case .results:
+                ResultsView()
             }
         }
     }

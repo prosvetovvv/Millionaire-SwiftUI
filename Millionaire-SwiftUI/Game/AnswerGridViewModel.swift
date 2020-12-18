@@ -7,9 +7,35 @@
 
 import SwiftUI
 
+enum GameSheets: Identifiable {
+    var id: Int {
+        hashValue
+    }
+    case victory, loss
+}
+
 final class AnswerGridViewModel: ObservableObject {
+        
+    @Published var currentAnswer: Question
+    @Published var activeSheet: GameSheets?
     
-    @Published var score = 0
-    
+    var questions = QuestionsData.questions
+    var currentNumberAnswer = 0
     let columns: [GridItem] = [GridItem(.flexible())]
+        
+    init() {
+        currentAnswer = questions.first!
+    }
+    
+    func check(_ answer: Answer) {
+        //currentNumberAnswer += 1
+        questions.removeFirst()
+        if answer.isRight, !questions.isEmpty {
+            currentAnswer = questions.first!
+        } else if answer.isRight, questions.isEmpty {
+            activeSheet = .victory
+        } else {
+            activeSheet = .loss
+        }
+    }
 }

@@ -1,35 +1,36 @@
 //
-//  SettingButton.swift
+//  ResultsButton.swift
 //  Millionaire-SwiftUI
 //
-//  Created by Vitaly Prosvetov on 15.12.2020.
+//  Created by Vitaly Prosvetov on 17.12.2020.
 //
 
 import SwiftUI
 
-struct SettingButton: View {
+struct ResultsButton: View {
     
     @Binding var sheet: MenuSheets?
     
     var body: some View {
         HStack {
-            Spacer()
             
             Button {
-                sheet = .settings
+                sheet = .results
             } label: {
-                Image(systemName: "gearshape")
+                Image(systemName: "target")
                     .foregroundColor(.black)
                     .imageScale(.large)
                     .frame(width: 44, height: 44)
             }
             .padding()
+            
+            Spacer()
         }
     }
     
-    struct SettingButton_Previews: PreviewProvider {
+    struct ResultsButton_Previews: PreviewProvider {
         static var previews: some View {
-            SettingButton(sheet: .constant(.settings))
+            ResultsButton(sheet: .constant(.results))
         }
     }
 }
