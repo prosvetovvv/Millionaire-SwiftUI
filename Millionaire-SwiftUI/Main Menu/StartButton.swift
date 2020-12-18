@@ -9,13 +9,13 @@ import SwiftUI
 
 struct StartButton: View {
 
-    @Binding var sheet: Sheets?
+    @Binding var sheet: MenuSheets?
     
     var body: some View {
         Button {
             sheet = .start
         } label: {
-            Text("Start")
+            Text("Start Game")
                 .frame(width: 300, height: 50)
                 .background(Color(.blue))
                 .foregroundColor(Color(.white))

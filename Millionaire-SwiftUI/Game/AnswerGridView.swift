@@ -9,44 +9,45 @@ import SwiftUI
 
 struct AnswerGridView: View {
     
-    @StateObject var viewModel = AnswerGridViewModel()
+    @ObservedObject var viewModel = AnswerGridViewModel()
     
     var body: some View {
         ZStack {
             BackgroundView()
-            
             VStack {
-                let questionNumber  = viewModel.score
-                
                 Spacer()
-                
-                QuestionText(answer: QuestionsData.questions[questionNumber].question)
-                
+                QuestionText(answer: viewModel.currentAnswer.question)
                 Spacer()
-                
                 LazyVGrid(columns: viewModel.columns) {
-                    ForEach(QuestionsData.questions[questionNumber].answers) { answer in
+                    ForEach(viewModel.currentAnswer.answers) { answer in
                         AnswerTitleView(title: "\(answer.answer)")
                             .onTapGesture {
-                                if answer.isRight, viewModel.score < QuestionsData.questions.count - 1 {
-                                    self.viewModel.score += 1
-                                    debugPrint(viewModel.score)
-                                } else {
-                                    debugPrint("Game over. Right answers: \(viewModel.score)")
-                                }
+                                viewModel.check(answer)
                             }
                     }
                 }
-                
-                Spacer()
+            }
+            Spacer()
+        }
+        
+        .sheet(item: $viewModel.activeSheet) { item in
+            switch item {
+            case .victory:
+                VictoryView()
+            case .loss:
+                LossView()
             }
         }
+        
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        AnswerGridView()
+        Group {
+            AnswerGridView()
+            AnswerGridView()
+        }
     }
 }
 

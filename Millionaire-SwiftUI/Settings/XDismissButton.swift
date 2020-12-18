@@ -9,7 +9,7 @@ import SwiftUI
 
 struct XDismissButton: View {
     
-    @Binding var sheet: Sheets?
+    @Binding var sheet: MenuSheets?
     
     var body: some View {
         HStack {
