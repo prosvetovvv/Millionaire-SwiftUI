@@ -7,16 +7,19 @@
 
 import Foundation
 
-private let resultsCaretaker = ResultsCaretaker()
+
+
 final class ResultsViewModel: ObservableObject {
+    
+    private let caretaker = Caretaker()
     
     @Published var results: [Result] {
         didSet {
-            resultsCaretaker.save(results: results)
+            caretaker.save(results: results)
         }
     }
     
     init() {
-        results = resultsCaretaker.retrieveRecords()
+        results = caretaker.loadResults()
     }
 }

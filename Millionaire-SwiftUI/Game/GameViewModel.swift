@@ -14,29 +14,32 @@ enum GameSheets: Identifiable {
     case victory, loss
 }
 
+enum Sequence {
+    case sequence, random
+}
+
 final class GameViewModel: ObservableObject {
         
     @Published var currentAnswer: Question
     @Published var activeSheet: GameSheets?
     
-    private let resultsCaretaker = ResultsCaretaker()
     private let resultsViewModel = ResultsViewModel()
     
     let columns: [GridItem] = [GridItem(.flexible())]
     
-    var questions = QuestionsData.questions
+    var remainingQuestions = QuestionsData.questions
     var score = 0
     
     init() {
-        currentAnswer = questions.first!
+        currentAnswer = remainingQuestions.first!
     }
     
     func check(_ answer: Answer) {
-        questions.removeFirst()
-        if answer.isRight, !questions.isEmpty {
+        remainingQuestions.removeFirst()
+        if answer.isRight, !remainingQuestions.isEmpty {
             score += 1
-            currentAnswer = questions.first!
-        } else if answer.isRight, questions.isEmpty {
+            currentAnswer = remainingQuestions.first!
+        } else if answer.isRight, remainingQuestions.isEmpty {
             score += 1
             resultsViewModel.results.append(Result(date: Date(), score: score))
             activeSheet = .victory
