@@ -17,5 +17,11 @@ enum MenuSheets: Identifiable {
 final class MainMenuViewModel: ObservableObject {
         
     @Published var activeSheet: MenuSheets?
-    @Published var results: [Result]?
+    @Published var settings: GameSettings
+    
+    let caretaker = Caretaker()
+    
+    init() {
+        settings = caretaker.loadSettings() ?? GameSettings(random: false)
+    }
 }

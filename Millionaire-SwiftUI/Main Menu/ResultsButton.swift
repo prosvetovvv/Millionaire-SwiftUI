@@ -13,7 +13,6 @@ struct ResultsButton: View {
     
     var body: some View {
         HStack {
-            
             Button {
                 sheet = .results
             } label: {
@@ -23,7 +22,6 @@ struct ResultsButton: View {
                     .frame(width: 44, height: 44)
             }
             .padding()
-            
             Spacer()
         }
     }

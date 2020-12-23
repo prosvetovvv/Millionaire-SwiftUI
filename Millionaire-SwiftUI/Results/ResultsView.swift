@@ -9,16 +9,11 @@ import SwiftUI
 
 struct ResultsView: View {
     
-    let resultList: [Result] = [
-        Result(date: Date(), score: 2),
-        Result(date: Date(), score: 3),
-        Result(date: Date(), score: 4),
-        Result(date: Date(), score: 2)
-    ]
+    @ObservedObject var viewModel = ResultsViewModel()
     
     var body: some View {
         List {
-            ForEach(resultList) { result in
+            ForEach(viewModel.results) { result in
                 ResultTitleView(data: result.date, score: result.score)
             }
         }

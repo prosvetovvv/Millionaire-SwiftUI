@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-struct AnswerGridView: View {
+struct GameView: View {
     
-    @ObservedObject var viewModel = AnswerGridViewModel()
+    @ObservedObject var viewModel = GameViewModel()
     
     var body: some View {
         ZStack {
@@ -45,8 +45,8 @@ struct AnswerGridView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            AnswerGridView()
-            AnswerGridView()
+            GameView()
+            GameView()
         }
     }
 }
