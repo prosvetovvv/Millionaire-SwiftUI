@@ -37,3 +37,4 @@ struct RandomList: View {
         }) .padding()
     }
 }
+

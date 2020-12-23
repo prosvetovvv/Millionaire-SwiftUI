@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Settings: Identifiable, Codable {
+struct GameSettings: Identifiable, Codable {
     var id = UUID()
     var random: Bool
 }

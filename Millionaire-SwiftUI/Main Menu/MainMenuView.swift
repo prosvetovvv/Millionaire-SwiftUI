@@ -27,7 +27,7 @@ struct MainMenuView: View {
             case .settings:
                 SettingsView()
             case .start:
-                AnswerGridView()
+                GameView()
             case .results:
                 ResultsView()
             }

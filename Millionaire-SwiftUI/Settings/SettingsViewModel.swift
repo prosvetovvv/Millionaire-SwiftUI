@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 final class SettingsViewModel: ObservableObject {
     
@@ -13,17 +14,15 @@ final class SettingsViewModel: ObservableObject {
     
     @Published var isRandom: Bool {
         didSet {
-            settings.random = isRandom
-            caretaker.save(settings: settings)
+            currentSettings.random = isRandom
+            caretaker.save(settings: currentSettings)
         }
     }
     
-    @Published var settings: Settings
+    var currentSettings: GameSettings
         
     init() {
-        settings = caretaker.loadSettings() ?? Settings(random: false)
-        self.isRandom = true
-        
+        currentSettings = caretaker.loadSettings() ?? GameSettings(random: false)
+        isRandom = currentSettings.random
     }
-    
 }

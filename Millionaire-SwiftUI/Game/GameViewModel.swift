@@ -23,14 +23,29 @@ final class GameViewModel: ObservableObject {
     @Published var currentAnswer: Question
     @Published var activeSheet: GameSheets?
     
+    //private var settingsViewModel = SettingsViewModel()
+    private let caretaker = Caretaker()
     private let resultsViewModel = ResultsViewModel()
     
     let columns: [GridItem] = [GridItem(.flexible())]
     
-    var remainingQuestions = QuestionsData.questions
-    var score = 0
+    private var remainingQuestions: [Question]
+    private var score = 0
+    
+    private let gameSettings: GameSettings
+    private let questionsList: QuestionsList
+    
     
     init() {
+        gameSettings = caretaker.loadSettings() ?? GameSettings(random: false)
+        
+        if gameSettings.random {
+            questionsList = QuestionsList(strategy: RandomStrategy())
+        } else {
+            questionsList = QuestionsList(strategy: SequenceStrategy())
+        }
+        
+        remainingQuestions = questionsList.getList()
         currentAnswer = remainingQuestions.first!
     }
     

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AnswerGridView: View {
+struct GameView: View {
     
     @ObservedObject var viewModel = GameViewModel()
     
@@ -45,8 +45,8 @@ struct AnswerGridView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            AnswerGridView()
-            AnswerGridView()
+            GameView()
+            GameView()
         }
     }
 }

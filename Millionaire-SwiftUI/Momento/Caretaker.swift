@@ -24,7 +24,7 @@ final class Caretaker {
             }
         }
     
-    func save(settings: Settings) {
+    func save(settings: GameSettings) {
         do {
             let data = try self.encoder.encode(settings)
             UserDefaults.standard.setValue(data, forKey: keySettings)
@@ -43,10 +43,10 @@ final class Caretaker {
             }
         }
     
-    func loadSettings() -> Settings? {
+    func loadSettings() -> GameSettings? {
         guard let data = UserDefaults.standard.data(forKey: keySettings) else { return nil }
         do {
-            return try self.decoder.decode(Settings.self, from: data)
+            return try self.decoder.decode(GameSettings.self, from: data)
         } catch {
             print(error)
             return nil

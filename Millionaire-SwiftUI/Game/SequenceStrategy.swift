@@ -8,27 +8,27 @@
 import Foundation
 
 protocol QuestionsListStrategy {
-    func getList(from array: [Question]) -> [Question]
+    func getList() -> [Question]
 }
 
 struct QuestionsList {
     let strategy: QuestionsListStrategy
     
-    func getList(_ questions: [Question]) -> [Question] {
-        return strategy.getList(from: questions)
+    func getList() -> [Question] {
+        return strategy.getList()
     }
 }
 
 struct SequenceStrategy: QuestionsListStrategy {
-    func getList(from array: [Question]) -> [Question] {
-        return array
+    func getList() -> [Question] {
+        return QuestionsData.questions
     }
 }
 
 struct RandomStrategy: QuestionsListStrategy {
-    func getList(from array: [Question]) -> [Question] {
-        var shuffleArray = array
-        shuffleArray.shuffle()
-        return shuffleArray
+    func getList() -> [Question] {
+        var shuffleQuestions = QuestionsData.questions
+        shuffleQuestions.shuffle()
+        return shuffleQuestions
     }
 }

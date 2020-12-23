@@ -14,7 +14,6 @@ struct SettingButton: View {
     var body: some View {
         HStack {
             Spacer()
-            
             Button {
                 sheet = .settings
             } label: {
