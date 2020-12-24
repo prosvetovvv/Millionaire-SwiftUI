@@ -22,8 +22,11 @@ final class GameViewModel: ObservableObject {
         
     @Published var currentAnswer: Question
     @Published var activeSheet: GameSheets?
+    @Published var amountOfQuestions: Int
+    @Published var currentNumberOfQuestion = 1
+    @Published var percentOfCorrectAnswers = 0
     
-    //private var settingsViewModel = SettingsViewModel()
+    
     private let caretaker = Caretaker()
     private let resultsViewModel = ResultsViewModel()
     
@@ -46,13 +49,17 @@ final class GameViewModel: ObservableObject {
         }
         
         remainingQuestions = questionsList.getList()
+        remainingQuestions.append(contentsOf: caretaker.loadQuestions())
         currentAnswer = remainingQuestions.first!
+        amountOfQuestions = remainingQuestions.count
     }
     
     func check(_ answer: Answer) {
         remainingQuestions.removeFirst()
         if answer.isRight, !remainingQuestions.isEmpty {
             score += 1
+            percentOfCorrectAnswers = Int(100 / (Double(amountOfQuestions) / Double(score)))
+            currentNumberOfQuestion += 1
             currentAnswer = remainingQuestions.first!
         } else if answer.isRight, remainingQuestions.isEmpty {
             score += 1

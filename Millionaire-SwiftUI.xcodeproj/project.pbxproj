@@ -31,6 +31,7 @@
 		E1A424EB2590B6DA00856CE9 /* SequenceStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A424EA2590B6DA00856CE9 /* SequenceStrategy.swift */; };
 		E1A424EF2590D28A00856CE9 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A424EE2590D28A00856CE9 /* SettingsViewModel.swift */; };
 		E1A424F32590D30500856CE9 /* GameSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A424F22590D30500856CE9 /* GameSettings.swift */; };
+		E1E0B5032594B52100C508A5 /* AddQuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E0B5022594B52100C508A5 /* AddQuestionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 		E1A424EA2590B6DA00856CE9 /* SequenceStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SequenceStrategy.swift; sourceTree = "<group>"; };
 		E1A424EE2590D28A00856CE9 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		E1A424F22590D30500856CE9 /* GameSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSettings.swift; sourceTree = "<group>"; };
+		E1E0B5022594B52100C508A5 /* AddQuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddQuestionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +163,7 @@
 			children = (
 				E1A424EE2590D28A00856CE9 /* SettingsViewModel.swift */,
 				E18FDC8E2588AA4F0060F20F /* SettingsView.swift */,
+				E1E0B5022594B52100C508A5 /* AddQuestionView.swift */,
 				E18FDC8725889A930060F20F /* XDismissButton.swift */,
 			);
 			path = Settings;
@@ -274,6 +277,7 @@
 				E18FDCAC258B7A5E0060F20F /* ResultTitleView.swift in Sources */,
 				E18FDCA2258B6AD40060F20F /* ResultsButton.swift in Sources */,
 				E1A424DE258CE83600856CE9 /* ResultsViewModel.swift in Sources */,
+				E1E0B5032594B52100C508A5 /* AddQuestionView.swift in Sources */,
 				E18FDC7425839A290060F20F /* GameViewModel.swift in Sources */,
 				E1A424DA258CE51700856CE9 /* Caretaker.swift in Sources */,
 				E1A424EB2590B6DA00856CE9 /* SequenceStrategy.swift in Sources */,

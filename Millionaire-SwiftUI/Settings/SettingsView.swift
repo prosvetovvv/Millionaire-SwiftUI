@@ -12,10 +12,19 @@ struct SettingsView: View {
     @ObservedObject var viewModel = SettingsViewModel()
     
     var body: some View {
-        VStack {
-            //XDismissButton(sheet: $viewModel.activeSheet)
-            RandomList(isRandom: $viewModel.isRandom)
-            Spacer()
+        NavigationView {
+            VStack(alignment: .leading) {
+                //XDismissButton(sheet: $viewModel.activeSheet)
+                RandomList(isRandom: $viewModel.isRandom)
+                NavigationLink(
+                    destination: AddQuestionView(),
+                    label: {
+                        Text("Add Question")
+                            .padding()
+                    })
+                Spacer()
+            }
+            .navigationTitle("⚙️ Settings")
         }
     }
 }

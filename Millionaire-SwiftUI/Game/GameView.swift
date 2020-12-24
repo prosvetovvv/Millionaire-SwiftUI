@@ -15,6 +15,9 @@ struct GameView: View {
         ZStack {
             BackgroundView()
             VStack {
+                NumberOfQuestionView(currentNumberOfQuestion: viewModel.currentNumberOfQuestion,
+                                     amountOfQuestions: viewModel.amountOfQuestions,
+                                     percentOfCorrectAnswers: viewModel.percentOfCorrectAnswers)
                 Spacer()
                 QuestionText(answer: viewModel.currentAnswer.question)
                 Spacer()
@@ -58,6 +61,28 @@ struct BackgroundView: View {
                        startPoint: .topLeading,
                        endPoint: .bottomTrailing)
             .edgesIgnoringSafeArea(.all)
+    }
+}
+
+struct NumberOfQuestionView: View {
+    
+    var currentNumberOfQuestion: Int
+    var amountOfQuestions: Int
+    var percentOfCorrectAnswers: Int
+    
+    var body: some View {
+        VStack {
+            Text("Current question: \(currentNumberOfQuestion)/\(amountOfQuestions)")
+                .font(.system(size: 32, weight: .medium))
+                .foregroundColor(.white)
+                .multilineTextAlignment(.center)
+                .padding()
+            Text("Correct answers: \(percentOfCorrectAnswers)%")
+                .font(.system(size: 32, weight: .medium))
+                .foregroundColor(.white)
+                .multilineTextAlignment(.center)
+                .padding()
+        }
     }
 }
 
