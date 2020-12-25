@@ -8,8 +8,20 @@
 import SwiftUI
 
 struct VictoryView: View {
+    
+    @Environment (\.presentationMode) var presentationMode
+    
     var body: some View {
-        Text("You Won! Congratulation! 🏆")
+        VStack {
+            Text("You Won! Congratulation!")
+            Text("🏆")
+                .font(.system(size: 150))
+                .padding()
+                .onTapGesture {
+                    MainMenuView()
+                    //self.presentationMode.wrappedValue.dismiss()
+                }
+        }
     }
 }
 
@@ -18,3 +30,4 @@ struct VictoryView_Previews: PreviewProvider {
         VictoryView()
     }
 }
+

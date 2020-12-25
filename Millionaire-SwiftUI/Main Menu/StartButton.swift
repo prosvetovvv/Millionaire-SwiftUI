@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct StartButton: View {
-
-    @Binding var sheet: MenuSheets?
+    
+    @Binding var isShowingGameView: Bool
     
     var body: some View {
         Button {
-            sheet = .start
+            isShowingGameView.toggle()
         } label: {
             Text("Start Game")
                 .frame(width: 300, height: 50)
@@ -27,6 +27,6 @@ struct StartButton: View {
 
 struct StartButton_Previews: PreviewProvider {
     static var previews: some View {
-        StartButton(sheet: .constant(.start))
+        StartButton(isShowingGameView: .constant(false))
     }
 }

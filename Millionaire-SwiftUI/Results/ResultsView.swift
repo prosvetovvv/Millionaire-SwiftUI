@@ -12,14 +12,12 @@ struct ResultsView: View {
     @ObservedObject var viewModel = ResultsViewModel()
     
     var body: some View {
-        NavigationView {
             List {
                 ForEach(viewModel.results) { result in
                     ResultTitleView(data: result.date, score: result.score)
                 }
             }
             .navigationTitle("Results")
-        }
     }
 }
 

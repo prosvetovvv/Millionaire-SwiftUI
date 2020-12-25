@@ -26,7 +26,6 @@ final class GameViewModel: ObservableObject {
     @Published var currentNumberOfQuestion = 1
     @Published var percentOfCorrectAnswers = 0
     
-    
     private let caretaker = Caretaker()
     private let resultsViewModel = ResultsViewModel()
     

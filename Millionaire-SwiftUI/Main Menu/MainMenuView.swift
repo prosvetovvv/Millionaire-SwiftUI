@@ -10,16 +10,13 @@ import SwiftUI
 struct MainMenuView: View {
     
     @StateObject var viewModel = MainMenuViewModel()
+    @State private var isShowingGameView = false
     
     var body: some View {
         NavigationView {
             VStack {
-//                HStack {
-//                    ResultsButton(sheet: $viewModel.activeSheet)
-//                    SettingButton(sheet: $viewModel.activeSheet)
-//                }
                 Spacer()
-                StartButton(sheet: $viewModel.activeSheet)
+                StartButton(isShowingGameView: $isShowingGameView)
                 NavigationLink(
                     destination: SettingsView(),
                     label: {
@@ -32,23 +29,14 @@ struct MainMenuView: View {
                     }) .padding()
                 Spacer()
             }
-            
-            .sheet(item: $viewModel.activeSheet) { item in
-                switch item {
-                case .settings:
-                    SettingsView()
-                case .start:
-                    GameView()
-                case .results:
-                    ResultsView()
-                }
-            }
+            .fullScreenCover(isPresented: $isShowingGameView, content: {
+                GameView()
+            })
+        }
+    }
+    struct MainMenuView_Previews: PreviewProvider {
+        static var previews: some View {
+            MainMenuView()
         }
     }
 }
-struct MainMenuView_Previews: PreviewProvider {
-    static var previews: some View {
-        MainMenuView()
-    }
-}
-

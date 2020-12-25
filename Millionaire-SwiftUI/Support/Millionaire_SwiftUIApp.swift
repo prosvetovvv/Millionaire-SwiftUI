@@ -12,6 +12,7 @@ struct Millionaire_SwiftUIApp: App {
     var body: some Scene {
         WindowGroup {
             //AnswerGridView()
+            //MainMenuNavigationView()
             MainMenuView()
         }
     }

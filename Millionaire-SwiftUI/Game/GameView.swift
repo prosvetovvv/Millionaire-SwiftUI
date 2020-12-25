@@ -10,6 +10,7 @@ import SwiftUI
 struct GameView: View {
     
     @ObservedObject var viewModel = GameViewModel()
+    @Environment (\.presentationMode) var presentationMode
     
     var body: some View {
         ZStack {
@@ -29,11 +30,15 @@ struct GameView: View {
                             }
                     }
                 }
+                Spacer()
+                Button("Main menu") {
+                    self.presentationMode.wrappedValue.dismiss()
+                }
             }
             Spacer()
         }
         
-        .sheet(item: $viewModel.activeSheet) { item in
+        .fullScreenCover(item: $viewModel.activeSheet) { item in
             switch item {
             case .victory:
                 VictoryView()
@@ -73,15 +78,14 @@ struct NumberOfQuestionView: View {
     var body: some View {
         VStack {
             Text("Current question: \(currentNumberOfQuestion)/\(amountOfQuestions)")
-                .font(.system(size: 32, weight: .medium))
+                .font(.system(size: 20, weight: .medium))
                 .foregroundColor(.white)
                 .multilineTextAlignment(.center)
                 .padding()
             Text("Correct answers: \(percentOfCorrectAnswers)%")
-                .font(.system(size: 32, weight: .medium))
+                .font(.system(size: 20, weight: .medium))
                 .foregroundColor(.white)
                 .multilineTextAlignment(.center)
-                .padding()
         }
     }
 }
