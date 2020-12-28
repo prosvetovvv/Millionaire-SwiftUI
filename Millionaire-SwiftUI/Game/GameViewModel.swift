@@ -34,21 +34,20 @@ final class GameViewModel: ObservableObject {
     private var remainingQuestions: [Question]
     private var score = 0
     
-    private let gameSettings: GameSettings
+    private let gameSettings: Settings
     private let questionsList: QuestionsList
     
     
     init() {
-        gameSettings = caretaker.loadSettings() ?? GameSettings(random: false)
+        gameSettings = caretaker.loadSettings() ?? Settings(random: false)
         
         if gameSettings.random {
             questionsList = QuestionsList(strategy: RandomStrategy())
         } else {
             questionsList = QuestionsList(strategy: SequenceStrategy())
         }
-        
         remainingQuestions = questionsList.getList()
-        remainingQuestions.append(contentsOf: caretaker.loadQuestions())
+        remainingQuestions.append(contentsOf: caretaker.loadQuestions() ?? [])
         currentAnswer = remainingQuestions.first!
         amountOfQuestions = remainingQuestions.count
     }

@@ -11,11 +11,11 @@ import SwiftUI
 final class SettingsViewModel: ObservableObject {
     
     private let caretaker = Caretaker()
-    var gameSettings: GameSettings
+    var gameSettings: Settings
     
-    var newQuestions = [Question]() {
+    var questions: [Question] {
         didSet {
-            caretaker.save(questions: newQuestions)
+            caretaker.save(questions: questions)
         }
     }
     
@@ -33,8 +33,10 @@ final class SettingsViewModel: ObservableObject {
     }
     
     init() {
-        gameSettings = caretaker.loadSettings() ?? GameSettings(random: false)
+        gameSettings = caretaker.loadSettings() ?? Settings.defaultSettings
         isRandom = gameSettings.random
+        questions = caretaker.loadQuestions() ?? QuestionsData.questions
+        
     }
     
     func addQuestion() {
@@ -44,7 +46,7 @@ final class SettingsViewModel: ObservableObject {
                           Answer(answer: self.incorrectAnswerThree, isRight: false)]
         newAnswers.shuffle()
         let newQuestion = Question(question: self.question, answers: newAnswers)
-        self.newQuestions.append(newQuestion)
+        self.questions.append(newQuestion)
     }
     
     

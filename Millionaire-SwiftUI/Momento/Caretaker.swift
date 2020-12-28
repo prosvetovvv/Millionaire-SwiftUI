@@ -25,7 +25,7 @@ final class Caretaker {
             }
         }
     
-    func save(settings: GameSettings) {
+    func save(settings: Settings) {
         do {
             let data = try self.encoder.encode(settings)
             UserDefaults.standard.setValue(data, forKey: keySettings)
@@ -53,23 +53,23 @@ final class Caretaker {
             }
         }
     
-    func loadSettings() -> GameSettings? {
+    func loadSettings() -> Settings? {
         guard let data = UserDefaults.standard.data(forKey: keySettings) else { return nil }
         do {
-            return try self.decoder.decode(GameSettings.self, from: data)
+            return try self.decoder.decode(Settings.self, from: data)
         } catch {
             print(error)
             return nil
         }
     }
     
-    func loadQuestions() -> [Question] {
-        guard let data = UserDefaults.standard.data(forKey: keyQuestions) else { return [] }
+    func loadQuestions() -> [Question]? {
+        guard let data = UserDefaults.standard.data(forKey: keyQuestions) else { return nil }
         do {
             return try self.decoder.decode([Question].self, from: data)
         } catch {
             print(error)
-            return []
+            return nil
         }
     }
 }

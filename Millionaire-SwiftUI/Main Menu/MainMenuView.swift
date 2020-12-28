@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MainMenuView: View {
     
-    @StateObject var viewModel = MainMenuViewModel()
+    //@StateObject var viewModel = MainMenuViewModel()
     @State private var isShowingGameView = false
     
     var body: some View {
