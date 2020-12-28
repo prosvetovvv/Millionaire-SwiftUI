@@ -7,21 +7,29 @@
 
 import SwiftUI
 
-enum MenuSheets: Identifiable {
-    var id: Int {
-        hashValue
-    }
-    case start, settings, results
-}
+//enum MenuSheets: Identifiable {
+//    var id: Int {
+//        hashValue
+//    }
+//    case start, settings, results
+//}
 
 final class MainMenuViewModel: ObservableObject {
         
-    @Published var activeSheet: MenuSheets?
-    @Published var settings: GameSettings
+    //@Published var activeSheet: MenuSheets?
+    //@Published private var questions: [Question]
     
-    let caretaker = Caretaker()
+    private let caretaker = Caretaker()
+    private var settings: Settings
     
     init() {
-        settings = caretaker.loadSettings() ?? GameSettings(random: false)
+        settings = caretaker.loadSettings() ?? Settings.defaultSettings
+    
+//        if caretaker.loadQuestions().isEmpty {
+//            questions = QuestionsData.questions
+//            caretaker.save(questions: questions)
+//        } else {
+//            questions = caretaker.loadQuestions()
+//        }
     }
 }

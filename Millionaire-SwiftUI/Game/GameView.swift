@@ -10,11 +10,15 @@ import SwiftUI
 struct GameView: View {
     
     @ObservedObject var viewModel = GameViewModel()
+    @Environment (\.presentationMode) var presentationMode
     
     var body: some View {
         ZStack {
             BackgroundView()
             VStack {
+                NumberOfQuestionView(currentNumberOfQuestion: viewModel.currentNumberOfQuestion,
+                                     amountOfQuestions: viewModel.amountOfQuestions,
+                                     percentOfCorrectAnswers: viewModel.percentOfCorrectAnswers)
                 Spacer()
                 QuestionText(answer: viewModel.currentAnswer.question)
                 Spacer()
@@ -26,11 +30,15 @@ struct GameView: View {
                             }
                     }
                 }
+                Spacer()
+                Button("Main menu") {
+                    self.presentationMode.wrappedValue.dismiss()
+                }
             }
             Spacer()
         }
         
-        .sheet(item: $viewModel.activeSheet) { item in
+        .fullScreenCover(item: $viewModel.activeSheet) { item in
             switch item {
             case .victory:
                 VictoryView()
@@ -58,6 +66,27 @@ struct BackgroundView: View {
                        startPoint: .topLeading,
                        endPoint: .bottomTrailing)
             .edgesIgnoringSafeArea(.all)
+    }
+}
+
+struct NumberOfQuestionView: View {
+    
+    var currentNumberOfQuestion: Int
+    var amountOfQuestions: Int
+    var percentOfCorrectAnswers: Int
+    
+    var body: some View {
+        VStack {
+            Text("Current question: \(currentNumberOfQuestion)/\(amountOfQuestions)")
+                .font(.system(size: 20, weight: .medium))
+                .foregroundColor(.white)
+                .multilineTextAlignment(.center)
+                .padding()
+            Text("Correct answers: \(percentOfCorrectAnswers)%")
+                .font(.system(size: 20, weight: .medium))
+                .foregroundColor(.white)
+                .multilineTextAlignment(.center)
+        }
     }
 }
 

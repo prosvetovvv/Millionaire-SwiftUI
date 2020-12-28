@@ -9,10 +9,14 @@ import SwiftUI
 
 @main
 struct Millionaire_SwiftUIApp: App {
+    
+    var currentQuestionList = GameSettings()
+    
     var body: some Scene {
         WindowGroup {
             //AnswerGridView()
-            MainMenuView()
+            //MainMenuNavigationView()
+            MainMenuView().environmentObject(currentQuestionList)
         }
     }
 }

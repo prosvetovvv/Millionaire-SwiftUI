@@ -9,35 +9,34 @@ import SwiftUI
 
 struct MainMenuView: View {
     
-    @StateObject var viewModel = MainMenuViewModel()
+    //@StateObject var viewModel = MainMenuViewModel()
+    @State private var isShowingGameView = false
     
     var body: some View {
-        VStack {
-            HStack {
-                ResultsButton(sheet: $viewModel.activeSheet)
-                SettingButton(sheet: $viewModel.activeSheet)
+        NavigationView {
+            VStack {
+                Spacer()
+                StartButton(isShowingGameView: $isShowingGameView)
+                NavigationLink(
+                    destination: SettingsView(),
+                    label: {
+                        Text("Settings")
+                    }) .padding()
+                NavigationLink(
+                    destination: ResultsView(),
+                    label: {
+                        Text("Results")
+                    }) .padding()
+                Spacer()
             }
-            Spacer()
-            StartButton(sheet: $viewModel.activeSheet)
-            Spacer()
-        }
-        
-        .sheet(item: $viewModel.activeSheet) { item in
-            switch item {
-            case .settings:
-                SettingsView()
-            case .start:
+            .fullScreenCover(isPresented: $isShowingGameView, content: {
                 GameView()
-            case .results:
-                ResultsView()
-            }
+            })
+        }
+    }
+    struct MainMenuView_Previews: PreviewProvider {
+        static var previews: some View {
+            MainMenuView()
         }
     }
 }
-
-struct MainMenuView_Previews: PreviewProvider {
-    static var previews: some View {
-        MainMenuView()
-    }
-}
-
